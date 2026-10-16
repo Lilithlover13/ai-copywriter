@@ -7,6 +7,26 @@ st.set_page_config(
     page_icon="🚀",
     layout="centered"
 )
+# --- ẨN GIAO DIỆN MẶC ĐỊNH CỦA STREAMLIT ---
+st.markdown("""
+    <style>
+    /* Ẩn menu Hamburger góc trên bên phải */
+    #MainMenu {visibility: hidden;}
+    /* Ẩn thanh header chứa nút Deploy trắng phía trên */
+    header {visibility: hidden;}
+    /* Ẩn dòng chữ Made with Streamlit ở dưới cùng */
+    footer {visibility: hidden;}
+    
+    /* (Tùy chọn) Bo góc và tạo bóng cho form nhập liệu nhìn xịn hơn */
+    div[data-testid="stForm"] {
+        background-color: #ffffff;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.05);
+        border: none;
+        border-radius: 12px;
+        padding: 20px;
+    }
+    </style>
+""", unsafe_allow_html=True)
 # --- HỆ THỐNG ĐĂNG NHẬP (TÊN ĐĂNG NHẬP + MẬT KHẨU) ---
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
