@@ -135,6 +135,11 @@ if submitted:
 
                 if response.text:
                     st.success("✅ Đã tạo bài viết thành công!")
+                    # --- ĐOẠN CODE GHI LỊCH SỬ THÊM VÀO Ở ĐÂY ---
+                    import datetime
+                    with open("lich_su.txt", "a", encoding="utf-8") as f:
+                        f.write(f"{datetime.datetime.now()} | User: {st.session_state.user} | Sản phẩm: {ten_sp}\n")
+                    # -------------------------------------------
                     st.subheader("📝 Bài viết của bạn")
                     st.text_area("Chỉnh sửa (nếu cần) và Copy để đăng ngay:", value=response.text, height=450)
                 else:
