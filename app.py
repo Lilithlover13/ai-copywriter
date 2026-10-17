@@ -147,3 +147,12 @@ if submitted:
 
             except Exception as e:
                 st.error(f"⚠️ Không thể tạo bài viết. Lỗi chi tiết: {e}")
+# --- TÍNH NĂNG ẨN: CHỈ ADMIN MỚI XEM ĐƯỢC LỊCH SỬ ---
+if st.session_state.user == "mypham_auth":  # Thay "admin" bằng tài khoản chủ của bạn
+    st.write("---")
+    st.subheader("🕵️ Lịch sử khách hàng sử dụng")
+    try:
+        with open("lich_su.txt", "r", encoding="utf-8") as f:
+            st.text(f.read())
+    except FileNotFoundError:
+        st.info("Chưa có ai bấm tạo bài viết cả.")
